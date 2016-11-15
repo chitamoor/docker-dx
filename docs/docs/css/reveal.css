@@ -136,6 +136,7 @@ body {
     visibility: visible; }
 
 .reveal .slides section .fragment.highlight-red,
+.reveal .slides section .fragment.highlight-yellow,
 .reveal .slides section .fragment.highlight-current-red,
 .reveal .slides section .fragment.highlight-green,
 .reveal .slides section .fragment.highlight-current-green,
@@ -146,6 +147,28 @@ body {
 
 .reveal .slides section .fragment.highlight-red.visible {
   color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-yellow.visible {
+  color: #ffd700; }
+
+.reveal .slides section .orange_text {
+  color:#ed9d13; }
+
+.reveal .slides section .cyan_text {
+  color:#40e0d0; }
+
+.reveal .slides section .red_text {
+  color:#f32626; }
+
+.reveal .slides section .place_right {
+  text-align: right; }
+
+.reveal .slides section .place_left {
+  text-align: left; }
+
+.reveal .slides section .place_bottom {
+  text-align: bottom; }
+
 
 .reveal .slides section .fragment.highlight-green.visible {
   color: #17ff2e; }
@@ -804,6 +827,10 @@ body {
 /*********************************************
  * PER-SLIDE BACKGROUNDS
  *********************************************/
+html.img-right div.slide-background.present {
+    background-position: right;
+}
+
 .reveal .backgrounds {
   position: absolute;
   width: 100%;
@@ -1042,6 +1069,11 @@ body {
 .reveal.rtl .slides h6 {
   direction: rtl;
   font-family: sans-serif; }
+
+
+.reveal .slides section .color.highlight-blue.visible {
+  color: #1b91ff; 
+}
 
 .reveal.rtl pre,
 .reveal.rtl code {
