@@ -1,0 +1,12 @@
+version: '2'
+services:
+  micro_svc_one:  #service name
+    build:
+      context: ../
+      dockerfile: ./docker/application/Dockerfile
+    image: docker_dx/micro_svc_one
+    ports:
+      - 9010:8080
+      - 9019:8009
+    dns: 192.168.20.1
+

@@ -1,0 +1,43 @@
+version: '2'
+services:
+  primary_svc:  #primary service name
+    build:
+      context: ../
+      dockerfile: ./docker/application/Dockerfile
+    image: docker_dx/primary_svc
+    ports:
+      - 9000:8080
+      - 9009:8009
+    depends_on:
+      - primary_svc-db
+      - micro_svc_one
+      - micro_svc_two
+    dns: 192.168.20.1
+
+  primary_svc-db: #db service
+    build:
+      context: ../
+      dockerfile: ./docker/database/Dockerfile
+
+    image: docker_dx/primary_svc-db
+    environment:
+      POSTGRES_DB: primary_svc
+      POSTGRES_USER: primary_user
+      POSTGRES_PASSWORD: primary_password
+    ports:
+      - 8432:5432
+
+  micro_svc_one:  #dependent service name
+    image: docker_dx/micro_svc_one
+    ports:
+      - 9010:8080
+      - 9019:8009
+    dns: 192.168.20.1
+
+
+  micro_svc_two:  #dependent service name
+    image: docker_dx/micro_svc_two
+    ports:
+      - 9020:8080
+      - 9029:8009
+    dns: 192.168.20.1

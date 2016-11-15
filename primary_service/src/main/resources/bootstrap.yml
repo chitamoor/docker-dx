@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: primary_svc
+#  cloud:
+#    config:
+#      env: local # optional
+#      label: master # optional
+#      uri: http://localhost:8888 # optional
