@@ -1,0 +1,65 @@
+Pre-Deployment Steps
+=====================
+	Tomcat server changes
+	---------------------
+	1. Create (self-signed) Public cert and Private Key for Prod VCD servers
+
+	2. Create a KeyStore and Truststore for the VCD tomcat instance
+	   
+	3. Config the server (tomcat) with the keystore and the truststore
+
+	4. Import the newly created VCD (self-signed) public cert into trust store (cacerts file) of the JVM of all the O2I app machines
+
+	
+	Apache Web Server
+	-----------------
+	1. Import the VCD server's (self-signed) public cert into Apache's /opt/apach2/ssl directory 
+	2. Restart 
+
+
+	O2I Apps
+	--------
+	1. Deploy the latest version of VCD to prod-app1 and prod-app2
+	2. Test endpoints
+
+
+Deployment Steps
+==================
+
+	Apache Web Server
+	------------------
+	1. Deploy the Web/Javascript changes
+	2. Restart Apache
+
+
+	O2I Apps
+	--------
+	Deploy the following apps
+	- TM
+	- FUI
+	- JD
+	- Dashboard
+	- AutoStoreroom
+	- Action
+
+
+Roll-back plan
+===============
+
+	Apache Web Server
+	------------------
+		1. Revert the Web/Javascript changes
+		2. Restart Apache
+
+
+	O2I Apps
+	--------
+	Rollback deployments - 
+	- TM
+	- FUI
+	- JD
+	- Dashboard
+	- AutoStoreroom
+	- Action
+
+
