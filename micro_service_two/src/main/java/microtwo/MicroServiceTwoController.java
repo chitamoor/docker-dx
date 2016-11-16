@@ -1,18 +1,24 @@
 package microtwo;
 
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
+@RequestMapping(value="/api/micro_two")
 public class MicroServiceTwoController {
 
-    @RequestMapping("/micro_two")
+    @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     DatedGreeting index() {
-        return new DatedGreeting("You have hit MicroService Two!", "12/12/2004");
-    }
 
+        String today = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+        return new DatedGreeting("Hello world from MicroService Two!", today);
+    }
 }
 
 class DatedGreeting {

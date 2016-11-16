@@ -72,62 +72,65 @@ cmd-init() {
 cmd-login() {
   declare desc="Login to to a given service's container. Uses 'primary' service by default"
   # get the name of the service dynamically
-  SERVICE=${1-${SERVICE_NAME}}
+  SERVICE=${1-${SERVICE}}
   SERVICE_CONTAINER="docker_${SERVICE}_1"
   docker exec -it  ${SERVICE_CONTAINER}  /bin/bash
 }
 
 cmd-build-service() {
-  declare desc="Builds a given service. Uses 'primary' service by default"
-  SERVICE=${1-${SERVICE_NAME}}
+  declare desc="Builds the 'primary' service"
+  SERVICE=${1-${SERVICE}}
   IMAGE=${2-${SERVICE_IMAGE}}
   cmd-stop-service ${SERVICE}
   fn-remove-non-running-containers
   fn-remove-image ${IMAGE}
-  mvn package #gradle build  # or
+  mvn package # or gradle build
   docker-compose -f ./docker/docker-compose.yml build ${SERVICE}
 }
 
 cmd-start-service() {
   declare desc="Starts a given service. Uses 'primary' service by default"
-  SERVICE=${1-${SERVICE_NAME}}
+  SERVICE=${1-${SERVICE}}
   echo "Starting ${SERVICE}..."
   docker-compose -f ./docker/docker-compose.yml up -d ${SERVICE}
 }
 
 cmd-stop-service() {
   declare desc="Stops down a given service. Uses 'primary' service by default"
-  SERVICE=${1-${SERVICE_NAME}}
+  SERVICE=${1-${SERVICE}}
   echo "Stopping ${SERVICE}..."
   docker-compose -f ./docker/docker-compose.yml stop ${SERVICE}
 }
 
 cmd-restart-service() {
   declare desc="Restarts a given service. Uses 'primary' service by default"
-  SERVICE=${1-${SERVICE_NAME}}
+  SERVICE=${1-${SERVICE}}
   echo "Restarting ${SERVICE}..."
   docker-compose -f ./docker/docker-compose.yml restart ${SERVICE}
 }
 
 cmd-build-db() {
   declare desc="Builds the DB image required for the DB service"
-  cmd-build-service ${SERVICE_DB_NAME} ${SERVICE_DB_IMAGE}
-  cmd-start-service ${SERVICE_DB_NAME}
+  cmd-stop-service ${DB_SERVICE}
+  fn-remove-non-running-containers
+  fn-remove-image ${DB_SERVICE_IMAGE}
+  docker-compose -f ./docker/docker-compose.yml build ${DB_SERVICE}
+
 }
 
 cmd-start-db() {
   declare desc="Starts the primary service's DB"
-  cmd-start-service ${SERVICE_DB_NAME}
+  cmd-start-service ${DB_SERVICE}
 }
 
 cmd-stop-db() {
   declare desc="Stops the primary service's DB"
-  cmd-stop-service ${SERVICE_DB_NAME}
+  cmd-stop-service ${DB_SERVICE}
 }
 
 cmd-restart-db() {
   declare desc="Restarts the primary service's DB"
-  cmd-restart-service ${SERVICE_DB_NAME}
+  cmd-restart-service ${DB_SERVICE}
 }
 
 cmd-push-image() {

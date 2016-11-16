@@ -12,7 +12,7 @@ services:
       - primary_svc-db
       - micro_svc_one
       - micro_svc_two
-    dns: 192.168.20.1
+    #dns: 192.168.20.1
 
   primary_svc-db: #db service
     build:
@@ -32,8 +32,18 @@ services:
     ports:
       - 9010:8080
       - 9019:8009
-    dns: 192.168.20.1
+    depends_on:
+      - micro_svc_one-db
+    #dns: 192.168.20.1
 
+  micro_svc_one-db: #db service
+    image: docker_dx/micro_svc_one-db
+    environment:
+      POSTGRES_DB: micro_svc_one
+      POSTGRES_USER: secondary_user
+      POSTGRES_PASSWORD: secondary_password
+    ports:
+      - 7432:5432
 
   micro_svc_two:  #dependent service name
     image: docker_dx/micro_svc_two

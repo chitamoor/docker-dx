@@ -1,1 +1,7 @@
 server.port: 8080
+spring.datasource.username : secondary_user
+spring.datasource.password : secondary_password
+spring.datasource.hibernate.default_schema : public
+spring.datasource.driver-class-name:  org.postgresql.Driver
+spring.datasource.url: jdbc:postgresql://micro_svc_one-db:5432/micro_svc_one
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect

@@ -14,41 +14,42 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 @RestController
+@RequestMapping(value="/primary")
 public class PrimaryController {
 
     @Value("${micro.svc.one.uri}")
-    private String microServiceOneUri;
+    private String microServiceOneBaseUri;
 
     @Value("${micro.svc.two.uri}")
-    private String microServiceTwoUri;
+    private String microServiceTwoBaseUri;
 
     @Autowired
     private PrimaryResourceRepository primaryResourceRepository;
 
-    @RequestMapping("/primary")
-    public String endPoint() {
-        return "You have hit the Primary Service!!!";
+    @RequestMapping(method = RequestMethod.GET)
+    public String index() {
+        return "Hello world from Primary Service!";
     }
 
-    @RequestMapping(value = "/primary/resource/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/resource/{id}", method = RequestMethod.GET)
     public PrimaryResource getPrimaryResource(@PathVariable("id") int id) {
         PrimaryResource primaryResource = primaryResourceRepository.findOne(id);
         return primaryResource;
     }
 
-    @RequestMapping("/primary/env")
-    public String env() throws IOException {
-        return microServiceOneUri;
-    }
-
-    @RequestMapping("/primary/micro_one")
+    @RequestMapping(value = "/micro_one", method = RequestMethod.GET)
     public String microOne() throws IOException {
-        return invokeMicroService(microServiceOneUri + "/micro_one");
+        return invokeMicroService(microServiceOneBaseUri);
     }
 
-    @RequestMapping("/primary/micro_two")
+    @RequestMapping(value = "/micro_one/resource/{id}", method = RequestMethod.GET)
+    public String microOneResource(@PathVariable("id") int id) throws IOException {
+        return invokeMicroService(microServiceOneBaseUri + "/resource/" + id);
+    }
+
+    @RequestMapping(value = "/micro_two", method = RequestMethod.GET)
     public String microTwo() throws IOException {
-        return invokeMicroService(microServiceTwoUri + "/micro_two");
+        return invokeMicroService(microServiceTwoBaseUri);
     }
 
     private String invokeMicroService(String url) throws IOException {

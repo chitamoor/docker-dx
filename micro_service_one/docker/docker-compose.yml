@@ -5,8 +5,23 @@ services:
       context: ../
       dockerfile: ./docker/application/Dockerfile
     image: docker_dx/micro_svc_one
+    depends_on:
+      - micro_svc_one-db
     ports:
       - 9010:8080
       - 9019:8009
-    dns: 192.168.20.1
+    #dns: 192.168.20.1
+
+  micro_svc_one-db: #db service
+    build:
+      context: ../
+      dockerfile: ./docker/database/Dockerfile
+
+    image: docker_dx/micro_svc_one-db
+    environment:
+      POSTGRES_DB: micro_svc_one
+      POSTGRES_USER: secondary_user
+      POSTGRES_PASSWORD: secondary_password
+    ports:
+      - 7432:5432
 
