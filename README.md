@@ -1,4 +1,4 @@
-# Improving the Development Experience through Docker (for Unix based envs)
+# Improving the Development Experience through Docker 
 
 Reference implemention of the concepts discussed in the presentation - https://chitamoor.github.io/docker-dx/
 
