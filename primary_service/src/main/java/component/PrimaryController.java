@@ -14,7 +14,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 @RestController
-@RequestMapping(value="/primary")
+@RequestMapping(value="/api/primary")
 public class PrimaryController {
 
     @Value("${micro.svc.one.uri}")

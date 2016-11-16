@@ -1,14 +1,5 @@
 <!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
-Improving the 
-==
-
-Developer Experience  <!-- .element: class="orange_text" --> 
-==
-
-through 
-==
- 
-Docker  <!-- .element: class="cyan_text" --> 
+Improving the Developer Experience through Docker
 ==
 
 ---
@@ -19,7 +10,7 @@ Docker  <!-- .element: class="cyan_text" -->
 ### Walt Disney Studios
 #### https://github.com/chitamoor 
 <!-- .element: class="em2" -->
-#### email: rajeev@chitamoor.com 
+#### email: rajeev@chitamoor.com, rajeev.r.chitamoor@disney.com
 <!-- .element: class="em2" -->
 
 
@@ -31,14 +22,7 @@ Asset Management  <!-- .element: class="orange_text" -->
 
 ---
 <!-- .slide: data-background="https://media.giphy.com/media/catPp7OuPVeBG/giphy.gif" --> 
-### Developer Experience(DX) is the practice of understanding
-<!-- .element: class="fragment highlight-yellow" --> 
-### how developers get their work done
-<!-- .element: class="fragment highlight-yellow" --> 
-### and by extension, 
-<!-- .element: class="fragment highlight-yellow" --> 
-### the practice of optimising that experience
-<!-- .element: class="fragment highlight-yellow" --> 
+### "Developer Experience(DX) is the practice of understanding how developers get their work done and by extension, the practice of optimising that experience"
 
 ---
 <!-- .slide: data-background-image="http://dcbanners.weebly.com/uploads/9/7/8/2/9782867/dc-movie-background.png" --> 
@@ -55,7 +39,7 @@ Asset Management  <!-- .element: class="orange_text" -->
 <!-- .element: class="fragment red_text place_bottom" -->
 
 ---
-<!-- .slide: data-background="md/disgust.jpg" -->
+<!-- .slide: data-background="https://wallpaperscraft.com/image/background_tools_drawings_patterns_18527_2560x1080.jpg" -->
 ## Source Control Stuff!
 <!-- .element: class="fragment orange_text place_left zoom-in" --> 
 ## Configure your application
@@ -106,19 +90,23 @@ Containers
    
 
 ---
-<!-- .slide: data-background-image="http://static.srcdn.com/wp-content/uploads/Chris-Evans-Captain-America-Trilogy.jpg" -->
-## Docker tools, Dockerfile, Docker-compose
+<!-- .slide: data-background-image="https://images5.alphacoders.com/403/thumb-1920-403880.jpg" -->
+### Docker tools 
+<!-- .element: class="cyan_text place_left" --> 
+### Dockerfile and Docker-compose
+<!-- .element: class="cyan_text place_left" --> 
 
-## Faster Application Setup
+### Faster Application Setup
 <!-- .element: class="fragment orange_text place_left zoom-in" --> 
-## Increased Parity between Local and Prod 
+### Increased Parity between Local and Prod 
 <!-- .element: class="fragment orange_text place_left zoom-in" --> 
 
 ---
+<!-- .slide: data-background-image="http://www.audienceseverywhere.net/wp-content/uploads/2014/10/Avengers_logo.jpg" -->
 ### There is no problem in computer science which cannot be solved by one more level of indirection
 
 ---
-
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 Goals
 ==
 ### Opinionated framework to think about the application
@@ -128,22 +116,27 @@ Goals
 <!-- .element: class="fragment orange_text" -->
 
 ---
-
-## Service
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
+## Key Abstractions
+### Service
 <!-- .element: class="fragment cyan_text" -->  
-## Application Stack
+### Application Stack
 <!-- .element: class="fragment orange_text" --> 
-## Lifecycle of the Stack/Service 
+### Lifecycle of the Stack/Service 
 <!-- .element: class="fragment" -->  
 
 ---
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 ## Application Stack
+
 ### Primary Service and the corresponding data store(s)
 <!-- .element: class="fragment orange_text" -->
-### External Services (and their data stores)
+### Secondary Services (and their data stores)
 <!-- .element: class="fragment cyan_text" -->
 
 ---
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
+
 ## Lifecyle of a Service
 
 ### Build the Service
@@ -156,8 +149,7 @@ Goals
 <!-- .element: class="fragment orange_text" -->
 
 ---
-
-<!-- *template: invert -->
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 ## Lifecyle of an Application Stack     
 ### Initialize the environment
 <!-- .element: class="fragment orange_text" -->
@@ -166,9 +158,9 @@ Goals
 <!-- .element: class="fragment cyan_text" -->
 
 ---
-<!-- *template: invert -->
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 ## What about Data?
-### Datastore (RDB or NoSql) is just another service
+### Datastore (RDB, NoSql etc) is just another service
 <!-- .element: class="orange_text" -->
 ### Requires few additional steps
 <!-- .element: class="cyan_text" -->
@@ -178,21 +170,28 @@ Goals
 <!-- .element: class="orange_text place_left" -->
 
 ---
-<!-- *template: invert -->
-
+<!-- .slide: data-background-image="http://static.srcdn.com/wp-content/uploads/Chris-Evans-Captain-America-Trilogy.jpg" -->
 devctl
-===
+==
 
-The scaffolding that enables the development workflow
-- Launch/shutdown the **application stack**
-- Start/Stop individual services
-- Provision/Update the DB
-- Other utility methods
+### The scaffolding that enables the development workflow
+<!-- .element: class="fragment highlight-red" -->
+
+- #### Launch/shutdown the application stack
+<!-- .element: class="fragment highlight-yellow" -->
+
+- #### Start/Stop/Restart individual services
+<!-- .element: class="fragment highlight-yellow" -->
+
+- #### Provision the DB
+<!-- .element: class="fragment highlight-yellow" -->
+
+- #### Other utility methods
+<!-- .element: class="fragment highlight-yellow" -->
 
 
 ---
-<!-- *template: invert -->
-
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 devctl examples
 ===
 
@@ -204,6 +203,8 @@ devctl examples
 ``` 
 
 ##### Start/Stop Service
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
+
 <!-- .element: class="cyan_text" -->
 
 ```javascript
@@ -213,7 +214,7 @@ devctl stop-service <service_name>
 By default starts/stops the **primary service**
 
 ---
-<!-- *template: invert -->
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 
 ## devctl DB commands
 <!-- .element: -->
@@ -231,18 +232,50 @@ By default starts/stops the **primary service**
 ```
 
 ---
-<!-- *template: invert -->
-
+<!-- .slide: data-background="http://wallpapercraze.com/images/wallpapers/Tron%20Castle%20Wallpaper-868904.jpeg" data-state="img-right" --> 
 ### Reference Implementation
+### https://github.com/chitamoor/docker_dx
+<!-- .element: class="cyan_text place_left" -->
 
-```
-https://github.com/chitamoor/docker_dx
-```
-![](./md/o2i-docker-scripts.png)
+---
+<!-- .slide: data-background="http://wallpapercraze.com/images/wallpapers/Tron%20Castle%20Wallpaper-868904.jpeg" data-state="img-right" --> 
+#Demo Time!
+![](./md/DXStack.jpg)
 
+---
+<!-- .slide: data-background="http://www.wdwinfo.com/Photos/Desktops/Castle_FW_1920x1200.jpg" data-state="img-right" --> 
 
+### Primary Service 
+<!-- .element: class="orange_text place_left" -->
+#### /api/primary 
+<!-- .element: class="cyan_text place_left" -->
+#### /api/primary/resource/{id} 
+<!-- .element: class="cyan_text place_left" -->
+#### /api/primary/micro_one
+<!-- .element: class="cyan_text place_left" -->
+#### /api/primary/micro_one/resource/{id}
+<!-- .element: class="cyan_text place_left" -->
 
+### Micro One Service 
+<!-- .element: class="orange_text place_left" -->
+#### /api/micro_one 
+<!-- .element: class="cyan_text place_left" -->
+#### /api/micro_one/resource/{id} 
+<!-- .element: class="cyan_text place_left" -->
 
+### Micro Two Service
+<!-- .element: class="orange_text place_left" -->
+#### /api/micro_two 
+<!-- .element: class="cyan_text place_left" -->
+#### /api/micro_two/resource/{id} 
+<!-- .element: class="cyan_text place_left" -->
 
-
+---
+<!-- .slide: data-background-size="600px" data-background-image="http://cdn.playbuzz.com/cdn/c6170ec5-1f85-4581-8dbc-14639a3eaa4d/4b79caa3-b4eb-405e-8476-c9e41c28210d.jpg" -->
+---
+![](https://s-media-cache-ak0.pinimg.com/564x/0b/70/af/0b70af5271733e76cf730ea066861c7a.jpg)
+#### https://github.com/chitamoor/docker_dx
+<!-- .element: class="orange_text" -->
+#### rajeev@chitamoor.com, rajeev.r.chitamoor@disney.com
+<!-- .element: class="cyan_text" -->
 
