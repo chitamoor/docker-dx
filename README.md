@@ -8,7 +8,7 @@ Reference implemention of the concepts discussed in the presentation - https://c
 An appliation stack typically has three components - 
 
    1. A **primary** service
-   2. A **(Postgres) DB service** (some services may not have a Datastore)
+   2. A DataStore e.g. Postgres DB (some services may not have a Datastore)
    3. Zero or more **secondary** services
 
 All of the above components (services) run inside a Docker container.
@@ -40,7 +40,6 @@ Examples of the variables that need to be defined in env.sh -
 	export DB_SERVICE_IMAGE=${SERVICE_IMAGE}-db
 	export REGISTRY_URL=docker.*
 ```
-
 
 ##DevCtl commands
 
@@ -150,6 +149,37 @@ ___The specific properties for each of the service is defined in the "env.sh" fi
 - There are two docker files - 
   -   One for the Application - ___docker/application/Dockerfile___
   -   One for the DB - ___docker/database/Dockerfile___ 
+
+## The Demo Stack
+![](./docs/md/DXStack.jpg)
+
+## Steps to launch the demo stack
+
+### 1. Build the images for the services
+  You will have to run ``` devctl.sh build-service ``` for each of the services - **primary, micro_service_one and micro_service_two**
+
+### 2. Build the images for the databases for the **primary** and **micro_one** services
+  You will have to run ``` devctl.sh build-data ``` from within the - primary_service and micro_service_one directories  
+
+### 3. Launch the Stack
+  Run ``` devctl.sh start-stack ``` from inside the **primary_service** directory
+
+### 4. Verify 
+  Run ``` devctl.sh status ``` to verify if all the containers/services started properly
+
+### 5. Check URLs
+##### Primary Service Urls
+- http://localhost:9000/api/primary/
+- http://localhost:9000/api/primary/micro_one
+- http://localhost:9000/api/primary/micro_one/resource/1
+- http://localhost:9000/api/primary/micro_two
+
+##### Micro One Service Urls
+- http://localhost:9010/api/micro_one
+- http://localhost:9000/api/micro_one/resource/1
+
+##### Micro Two Service Urls
+- http://localhost:9010/api/micro_two
 
 
 ## <a name="db-setup"></a>DB Setup

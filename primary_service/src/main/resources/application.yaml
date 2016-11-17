@@ -1,6 +1,6 @@
 server.port: 8080
-micro.svc.one.uri : http://micro_svc_one:8080/micro_one/api
-micro.svc.two.uri : http://micro_svc_two:8080/micro_two/api
+micro.svc.one.uri : http://micro_svc_one:8080/api/micro_one
+micro.svc.two.uri : http://micro_svc_two:8080/api/micro_two
 spring.datasource.username : primary_user
 spring.datasource.password : primary_password
 spring.datasource.hibernate.default_schema : public
