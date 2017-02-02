@@ -1,5 +1,7 @@
 package component;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import component.domain.PrimaryResource;
 import component.repository.PrimaryResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import okhttp3.Response;
 @RequestMapping(value="/api/primary")
 public class PrimaryController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(PrimaryController.class);
+
     @Value("${micro.svc.one.uri}")
     private String microServiceOneBaseUri;
 
@@ -28,11 +32,13 @@ public class PrimaryController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index() {
+        LOG.info("Request received!");
         return "Hello world from Primary Service!";
     }
 
     @RequestMapping(value = "/resource/{id}", method = RequestMethod.GET)
     public PrimaryResource getPrimaryResource(@PathVariable("id") int id) {
+        LOG.info("Request received - resource id : [{}]", id);
         PrimaryResource primaryResource = primaryResourceRepository.findOne(id);
         return primaryResource;
     }

@@ -6,5 +6,6 @@ spring.datasource.password : primary_password
 spring.datasource.hibernate.default_schema : public
 spring.datasource.driver-class-name:  org.postgresql.Driver
 spring.datasource.url: jdbc:postgresql://primary_svc-db:5432/primary_svc
-#spring.datasource.url: jdbc:postgresql://localhost:8432/primary_svc
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+logging.file : log/application.log
+logging.pattern.level : "%X{mdcData}%5p"

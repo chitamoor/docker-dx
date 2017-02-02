@@ -19,6 +19,7 @@ jar {
 
 repositories {
     mavenCentral()
+    maven { url 'http://sndyuk.github.com/maven' }
 }
 
 sourceCompatibility = 1.8
@@ -27,6 +28,8 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile('net.logstash.logback:logstash-logback-encoder:4.7')
+    compile 'com.sndyuk:logback-more-appenders:1.1.1'
 //  compile("org.springframework.cloud:spring-cloud-starter-config:1.2.1.RELEASE")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile 'com.squareup.okhttp3:okhttp:3.4.2'
