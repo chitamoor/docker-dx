@@ -4,7 +4,7 @@ Reference implemention of the concepts discussed in the presentation - https://c
 
 ## Basic concepts:
 
-###Stack
+### Stack
 An appliation stack typically has three components - 
 
    1. A **primary** service
@@ -28,7 +28,7 @@ Each of the application stack's components (primary service, DB service and depe
 In order to launch the application stack, you will need the docker images for the primary, DB and dependent services. You can only build the (docker) image for the primary service and the corresponding DB service from within a repo/project. The images of dependent services can either be pulled from the private repository or can be built locally from within the corresponding repo/project.
 
 
-###devctl.sh
+### devctl.sh
 **devctl.sh** is the primary (bash) script that controls the developer environment, including the **lifecyle of the application stack**. The **devctl** script is found in the main directory of every project, and requires a few **environment variables** to be specified. These variables must be defined in the **env.sh** file which should also exist in the top level directory of the project. 
 
 Examples of the variables that need to be defined in env.sh - 
@@ -41,7 +41,7 @@ Examples of the variables that need to be defined in env.sh -
 	export REGISTRY_URL=docker.*
 ```
 
-##DevCtl commands
+## DevCtl commands
 
 ### Initialization commands 
 ```devctl.sh  init```
